@@ -12,5 +12,6 @@ LazyData: true
 Imports:
     stats,
     MASS,
-    dplyr
+    dplyr,
+    accept
 RoxygenNote: 6.1.1
