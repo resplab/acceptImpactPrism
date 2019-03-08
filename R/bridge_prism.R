@@ -1,6 +1,6 @@
 model_run<-function(model_input=NULL)
 {
-  patient_data<-patients[1,]
+  patient_data<-samplePatients[1,]
   nms<-names(patient_data)
 
   if(length(model_input)>0)
