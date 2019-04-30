@@ -10,7 +10,6 @@ model_run<-function(model_input=NULL)
      stop("Error: no input parameter was submitted")
 
   res<-predictACCEPT(patient_data)
-  res<-res[-1:-(length(res)-12)]
-
+  
   return(as.list(res))
 }
