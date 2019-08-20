@@ -11,6 +11,7 @@ Encoding: UTF-8
 LazyData: true
 Imports:
     stats,
+    tibble,
     MASS,
     dplyr,
     accept (>= 0.3.0)

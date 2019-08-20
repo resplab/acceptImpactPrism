@@ -1,6 +1,14 @@
+#' @title Run ACCEPT Model
+#' @description This function calls the predictACCEPT model. 
+#' If no model_input is specified, it will use the defaults
+#' If one of the columns in model_input is missing, it will replace with the default column
+#' It will check all the columns of the patient_data object; if one is missing, it will
+#' replace with the default, and will remove any extra columns
+#' @param model_input A list/json object with "patient_data", "random_sampling_N", "random_distribution_iteration",
+#' and "calculate_CIs" as columns
+#' @return Returns a list of results
 model_run<-function(model_input=NULL)
 {
-   
     if (is.null(model_input)) {
       print("No input parameter specified, using default data")
       model_input = list(patient_data = samplePatients[1,])
@@ -17,10 +25,33 @@ model_run<-function(model_input=NULL)
     if(is.null(model_input$calculate_CIs)) {
       model_input$calculate_CIs = TRUE
     }
-    res <- predictACCEPT(model_input$patient_data, random_sampling_N = model_input$random_sampling_N,
-                         random_distribution_iteration = model_input$random_distribution_iteration,
-                         calculate_CIs = model_input$calculate_CIs)
-    return(as.list(res))
+    patient_data = tibble::as_tibble(model_input$patient_data)
+    patient_data = checkPatientInput(patient_data)
+    model_input$patient_data = patient_data
+    
+    results = predictACCEPT(model_input$patient_data, random_sampling_N = model_input$random_sampling_N,
+                      random_distribution_iteration = model_input$random_distribution_iteration,
+                      calculate_CIs = model_input$calculate_CIs)
+    return(as.list(results))
+}
+
+checkPatientInput = function(patientData) {
+  samplePatients = samplePatients[1,]
+  columnNames = names(samplePatients)
+  dataNames = names(patientData)
+  for(name in columnNames) {
+    if(!(name %in% dataNames)) {
+      patientData[[name]] = samplePatients[[name]]
+      message(paste0(name, " is missing in patient input data, setting it to default value"))
+    }
+  }
+  for(name in dataNames) {
+    if(!(name %in% columnNames)) {
+      patientData[[name]] = NULL
+      message(paste0(name, " is not a valid column. Removing from patient input"))
+    }
+  }
+  return(patientData)
 }
 
 get_default_input <- function() {
