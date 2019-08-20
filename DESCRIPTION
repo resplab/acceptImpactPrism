@@ -1,6 +1,6 @@
 Package: acceptPrism
 Title: The ACute COPD Exacerbation Prediction Tool (ACCEPT) - PRISM Enabled
-Version: 0.4.0
+Version: 0.4.3
 Authors@R: c(
     person("Amin", "Adibi", email = "adibi@alumni.ubc.ca", role = c("aut", "cph")),
     person("Mohsen", "Sadatsafavi", email = "mohsen.sadatsafavi@ubc.ca", role = c("aut", "cre")))
@@ -10,9 +10,7 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports:
-    stats,
     tibble,
-    MASS,
-    dplyr,
+    jsonlite(>= 1.6),
     accept (>= 0.3.0)
 RoxygenNote: 6.1.1
