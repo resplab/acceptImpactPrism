@@ -12,6 +12,5 @@ LazyData: true
 Imports:
     accept (>= 0.3.0),
     jsonlite,
-    rredis,
-    tibble
+    rredis
 RoxygenNote: 6.1.1
