@@ -25,7 +25,7 @@ model_run<-function(model_input=NULL)
     if(is.null(model_input$calculate_CIs)) {
       model_input$calculate_CIs = TRUE
     }
-    #patient_data = tibble::as_tibble(model_input$patient_data)
+    patient_data = tibble::as_tibble(model_input$patient_data)
     patient_data = checkPatientInput(patient_data)
     model_input$patient_data = patient_data
     
