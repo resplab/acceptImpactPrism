@@ -1,4 +1,5 @@
 #' @import jsonlite
 #' @import accept
-#' @import tibble
+#' @import rredis
+#' @importFrom tibble as_tibble
 NULL
