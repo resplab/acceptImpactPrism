@@ -7,6 +7,7 @@
 #' @param model_input A list/json object with "patient_data", "random_sampling_N", "random_distribution_iteration",
 #' and "calculate_CIs" as columns
 #' @return Returns a list of results
+#' @export
 model_run<-function(model_input=NULL)
 {
 
@@ -20,6 +21,9 @@ model_run<-function(model_input=NULL)
        model_input$calculate_CIs = TRUE
      }
     
+    if (is.null(model_input)) {
+      stop("no inputs were submitted")
+    }
     #model_input <- as.data.frame(model_input)
   
     results <- predictACCEPT(model_input, random_sampling_N = model_input$random_sampling_N,
@@ -31,11 +35,11 @@ model_run<-function(model_input=NULL)
 
 
 get_default_input <- function() {
-  model_input = list(patient_data = samplePatients[1,])
+  model_input = samplePatients[1,]
   model_input$random_sampling_N = 1000
   model_input$random_distribution_iteration = 20000
   model_input$calculate_CIs = TRUE
-  return(flatten_list(model_input))
+  return(model_input)
 }
 
 
