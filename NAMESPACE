@@ -2,13 +2,7 @@
 
 export(gateway)
 export(model_run)
-export(model_run.long)
-export(prism_check_run_progress)
-export(prism_get_output_structure)
 export(prism_model_run)
-export(prism_set_run_progress)
-export(test)
 import(accept)
 import(jsonlite)
-import(rredis)
 importFrom(tibble,as_tibble)
