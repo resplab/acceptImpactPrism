@@ -38,7 +38,6 @@ gateway<-function(...)
   arguments$api_key<-NULL
   arguments$session_id<-NULL
   
-  if(!is.null(session_id)) restore_session(session_id)
   
   if(length(arguments)==0) {
     out<-eval(parse(text=paste(func,"()")))
@@ -64,16 +63,6 @@ connect_to_model<-function(api_key="")
   model_name<-environmentName(environment(connect_to_model))
   out<-list(error_code=0,session_id="",version="",description="")
   
-  if(thisSession$MODE_REQUIRE_API_KEY)
-  {
-    if(is.null(api_key))
-    {
-      out$error_code<--1
-      out$version<-"1234"
-      out$description<-"Error: access to the model requires a valid API key."
-      return(out)
-    }
-  }
   
   if(thisSession$MODE_REQUIRE_SESSION)
   {
