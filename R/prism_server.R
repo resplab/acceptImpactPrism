@@ -1,3 +1,4 @@
+## v0.3.0 2019-05-27
 
 get_my_name<-function()
 {
