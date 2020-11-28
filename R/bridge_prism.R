@@ -12,13 +12,10 @@ model_run<-function(model_input=NULL)
 {
 
      if(is.null(model_input$random_sampling_N)) {
-       model_input$random_sampling_N = 1000
-     }
-     if(is.null(model_input$random_distribution_iteration)) {
-       model_input$random_distribution_iteration = 20000
+       model_input$random_sampling_N = 100
      }
      if(is.null(model_input$calculate_CIs)) {
-       model_input$calculate_CIs = TRUE
+       model_input$calculate_CIs = FALSE
      }
     
     if (is.null(model_input)) {
@@ -26,8 +23,7 @@ model_run<-function(model_input=NULL)
     }
     #model_input <- as.data.frame(model_input)
   
-    results <- predictACCEPT(model_input, random_sampling_N = model_input$random_sampling_N,
-                                          random_distribution_iteration = model_input$random_distribution_iteration,
+    results <- accept(model_input, random_sampling_N = model_input$random_sampling_N,
                                           calculate_CIs = model_input$calculate_CIs)
     
     return(as.list(results))
@@ -36,12 +32,10 @@ model_run<-function(model_input=NULL)
 
 get_default_input <- function() {
   model_input = samplePatients[1,]
-  model_input$random_sampling_N = 1000
-  model_input$random_distribution_iteration = 20000
-  model_input$calculate_CIs = TRUE
+  model_input$random_sampling_N = 100
+  model_input$calculate_CIs = FALSE
   return(model_input)
 }
-
 
 
 #Gets a hierarchical named list and flattens it; updating names accordingly
