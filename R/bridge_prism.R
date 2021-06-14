@@ -23,8 +23,7 @@ model_run<-function(model_input=NULL)
     }
     #model_input <- as.data.frame(model_input)
   
-    results <- accept(model_input, random_sampling_N = model_input$random_sampling_N,
-                                          calculate_CIs = model_input$calculate_CIs)
+    results <- accept(model_input, random_sampling_N = model_input$random_sampling_N)
     
     return(as.list(results))
 }
