@@ -24,6 +24,8 @@ model_run<-function(model_input=NULL)
     #model_input <- as.data.frame(model_input)
   
     results <- accept(model_input, random_sampling_N = model_input$random_sampling_N)
+     
+    plot(results$LastYrSevExacCount)
     
     return(as.list(results))
 }
