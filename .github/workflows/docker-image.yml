@@ -39,3 +39,11 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          
+      - name: Deploy to CapRover
+        uses: floms/action-caprover@v1
+        with:
+          host: 'https://captain.cp.prism-ubc.linaralabs.com'
+          password: '${{ secrets.CAPROVER_PASSWORD }}'
+          app: 'model-accept'
+          image: 'ghcr.io/resplab/acceptprism:latest'
