@@ -31,7 +31,7 @@ model_run<-function(model_input=NULL)
 }
 
 
-get_default_input <- function() {
+prism_get_default_input <- function() {
   model_input = samplePatients[1,]
   model_input$random_sampling_N = 100
   model_input$calculate_CIs = FALSE
