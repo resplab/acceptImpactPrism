@@ -46,7 +46,6 @@ model_run<-function(model_input=NULL)
     probabilities <- plotData %>% select (Treatment, contains("probability"))
     rates <- plotData %>% select (Treatment, contains("rate"))
     
-    png('rplot.png')
     p <- ggplot(probabilities , aes (x = Treatment)) + 
       geom_col(aes(y=100*predicted_exac_probability, fill=Treatment), show.legend = T, width = 0.7) + 
       geom_text(
@@ -59,7 +58,6 @@ model_run<-function(model_input=NULL)
             axis.ticks.x=element_blank()) 
     
     print(p)
-    dev.off()
     
     return(as.list(results))
 }
