@@ -51,8 +51,6 @@ model_run<-function(model_input=NULL)
     
     
     
-    ggplot(results) + barplot()
-    
     return(as.list(results))
 }
 
