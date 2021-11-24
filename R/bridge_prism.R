@@ -28,12 +28,12 @@ model_run<-function(model_input=NULL)
   
     #plotting
     
-    # Define the cars vector with 5 values
-    cars <- c(1, 3, 6, 4, 9)
-    
-    # Graph cars
-    barplot(cars)
-    
+    # # Define the cars vector with 5 values
+    # cars <- c(1, 3, 6, 4, 9)
+    # 
+    # # Graph cars
+    # barplot(cars)
+    # 
     
     resultsPlot <- results %>% select(-c(male, age, smoker, oxygen, statin, LAMA, LABA, ICS, FEV1, BMI, SGRQ, LastYrExacCount, 
                                      LastYrSevExacCount, randomized_azithromycin,	randomized_statin,	randomized_LAMA,	
