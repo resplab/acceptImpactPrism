@@ -29,7 +29,7 @@ model_run<-function(model_input=NULL)
     #plotting
     resultsPlot <- results %>% select(-c(male, age, smoker, oxygen, statin, LAMA, LABA, ICS, FEV1, BMI, SGRQ, LastYrExacCount, 
                                      LastYrSevExacCount, randomized_azithromycin,	randomized_statin,	randomized_LAMA,	
-                                     randomized_LABA,	randomized_ICS))
+                                     randomized_LABA,	randomized_ICS, random_sampling_N, calculate_CIs ))
     
     azithroResults <- resultsPlot %>% select (ID, contains("azithro")) %>% mutate (Treatment = "With Azithromycin") %>%
       rename_all(list(~str_replace(., "azithromycin_", "")))
