@@ -45,5 +45,5 @@ jobs:
         with:
           host: 'https://captain.cp.prism-ubc.linaralabs.com'
           password: '${{ secrets.CAPROVER_PASSWORD }}'
-          app: 'model-accept'
-          image: 'ghcr.io/resplab/acceptprism:latest'
+          app: 'model-accept-impact'
+          image: 'ghcr.io/resplab/acceptimpactprism:latest'
