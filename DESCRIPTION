@@ -1,4 +1,4 @@
-Package: acceptPrism
+Package: acceptImpactPrism
 Title: The ACute COPD Exacerbation Prediction Tool (ACCEPT) - PRISM Enabled
 Version: 1.0.0.999
 Authors@R: c(
@@ -17,4 +17,4 @@ Imports:
     ggplot2,
     ggthemes,
     stringr
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
